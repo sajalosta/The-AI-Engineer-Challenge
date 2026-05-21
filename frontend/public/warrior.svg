@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Victorious warrior">
+  <rect width="120" height="120" fill="#ffd6e4"/>
+  <circle cx="60" cy="28" r="14" fill="#8b0000"/>
+  <path fill="#8b0000" d="M42 44h36l-4 52H46L42 44z"/>
+  <path fill="#c71585" d="M30 50l12-8 6 10-18 14zm60 0L72 42l-6 10 18 14z"/>
+  <path fill="#8b0000" d="M52 96h16v10H52z"/>
+  <path fill="#a52a2a" d="M18 72l14-6 8 14-22-8zm84 0-14-6-8 14 22-8z"/>
+  <path fill="#ffe4ec" stroke="#8b0000" stroke-width="2" d="M78 18l8 10-12 4 4-14zm-36 0-8 10 12 4-4-14z"/>
+  <text x="60" y="112" text-anchor="middle" font-family="Garamond, serif" font-size="9" fill="#8b0000">Victory</text>
+</svg>

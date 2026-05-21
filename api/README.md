@@ -26,6 +26,20 @@ source .venv/bin/activate  # Windows: .venv\Scripts\activate
 
 `uv` will create the `.venv` directory automatically on first sync and download Python 3.12 if it's not already available.
 
+## Deploying on Vercel
+
+1. Deploy from the **repository root** (not `frontend/`):
+
+   ```bash
+   vercel
+   ```
+
+2. In the Vercel project **Settings → Environment Variables**, add `OPENAI_API_KEY` for **Production** (and Preview if you use preview deployments). Redeploy after saving.
+
+3. Your API base URL is the project domain, e.g. `https://ai-engineer-challenge-api-five.vercel.app`. Set that as `NEXT_PUBLIC_API_URL` on your **frontend** Vercel project.
+
+> **Important:** Do not create `OpenAI()` at module import time. Vercel loads `api/index.py` on every cold start; if the key is missing, the whole function crashes with `FUNCTION_INVOCATION_FAILED` before any route runs.
+
 ## Running the Server
 
 Start the FastAPI app with the dependencies managed by `uv`:

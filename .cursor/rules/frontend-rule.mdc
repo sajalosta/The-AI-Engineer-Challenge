@@ -11,3 +11,7 @@ alwaysApply: false
 - You should use Next.js as it works best with Vercel. 
 - This frontend will ultimately be deployed on Vercel, but it should be possible to test locally. 
 - Always provide users with a way to run the created UI once you have created it.
+- I like a light pink background with red text.
+- Use Garamond as the font style
+- Make the font size 11.5
+- Show a picture of a warrior somewhere that wins a war
