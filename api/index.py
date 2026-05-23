@@ -33,8 +33,14 @@ def get_openai_client() -> OpenAI:
     return _client
 
 
+class HistoryMessage(BaseModel):
+    role: str
+    content: str
+
+
 class ChatRequest(BaseModel):
     message: str
+    history: list[HistoryMessage] = []
 
 @app.get("/")
 def root():
@@ -43,13 +49,16 @@ def root():
 @app.post("/api/chat")
 def chat(request: ChatRequest):
     try:
-        user_message = request.message
+        messages: list[dict[str, str]] = [
+            {"role": "system", "content": "You are a supportive mental coach."},
+        ]
+        for msg in request.history:
+            messages.append({"role": msg.role, "content": msg.content})
+        messages.append({"role": "user", "content": request.message})
+
         response = get_openai_client().chat.completions.create(
             model="gpt-5",
-            messages=[
-                {"role": "system", "content": "You are a supportive mental coach."},
-                {"role": "user", "content": user_message}
-            ]
+            messages=messages,
         )
         return {"reply": response.choices[0].message.content}
     except Exception as e:
